@@ -1,0 +1,240 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-neutral-400: hsl(217, 12%, 63%);
+    --clr-neutral-500: hsl(216, 12%, 54%);
+    --clr-neutral-800: hsl(215, 23%, 14%);
+    --clr-neutral-900: hsl(228, 11%, 9%);
+
+    --clr-primary-500: hsl(25, 97%, 53%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Overpass', sans-serif;
+    --normal-font-size: .875rem;
+
+    /*========== Font weight ==========*/
+    /* Weight Reference : https://cssreference.io/property/font-weight/ */
+    --font-regular: 400;
+    --font-bold: 700;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 460px) {
+    :root {
+        --normal-font-size: 1rem;
+    }
+}
+
+/*========== 1. Use a more-intuitive box-sizing model ==========*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*========== 2. Remove default margin ==========*/
+* {
+    margin: 0;
+}
+
+/*========== Typographic tweaks! ==========*/
+/*3. Add accessible line-height*/
+/*4. Improve text rendering*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*========== 5. Improve media defaults ==========*/
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*========== 6. Remove built-in form typography styles ==========*/
+input, button, textarea, select {
+    font: inherit;
+}
+
+/*========== 7. Avoid text overflows ==========*/
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3 {
+    line-height: 1;
+}
+
+/*========== 8. Create a root stacking context ==========*/
+#root, #__next {
+    isolation: isolate;
+}
+
+/*=============== GENERAL STYLE ===============*/
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-regular);
+    color: var(--clr-neutral-400);
+    background-color: var(--clr-neutral-900);
+}
+
+/*=============== CONTAINER ===============*/
+.container {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    margin: 1.438rem;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none!important;
+}
+
+/*=============== RATING STATE START ===============*/
+/*=============== GENERAL CARD STYLE ===============*/
+.card {
+    display: grid;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--clr-neutral-800);
+    max-width: 420px;
+}
+
+/*=============== CARD CONTENT ===============*/
+.card__img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: hsl(208, 20%, 17%);
+}
+
+.card__img-container img {
+    height: 15px;
+}
+
+.card__title {
+    color: var(--clr-neutral-100);
+    margin-bottom: 1rem;
+}
+
+.flex-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*=============== RATING STATE END ===============*/
+.thank__section {
+    text-align: center;
+}
+
+.thank__section img {
+    justify-self: center;
+}
+
+.card__selection-container {
+    display: flex;
+    justify-content: center;
+}
+
+.card__selection {
+    font-size: .938rem;
+    background-color: hsl(210, 19%, 18%);
+    color: hsla(25, 97%, 53%, .8);
+    width: 190px;
+    border-radius: 3rem;
+    padding: .25rem;
+}
+
+.thank__section .card__description {
+    font-size: .938rem;
+    margin: .5rem;    
+}
+
+/*=============== GENERAL BUTTONS STYLE ===============*/
+button {
+    border: none;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+button:hover {
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-500);
+}
+
+/*=============== RATING BUTTONS STYLE ===============*/
+.card__rating-btn {
+    height: 42px;
+    width: 42px;
+    border-radius: 100%;
+    color: var(--clr-neutral-400);
+    background-color: hsl(210, 19%, 18%);
+}
+
+.checked {
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-500);
+}
+
+/*=============== SUBMIT BUTTON STYLE ===============*/
+.submit-btn {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    padding: .813rem;
+    border-radius: 3rem;
+    font-weight: var(--font-bold);
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-500);
+    transition: all .5s;
+}
+
+.submit-btn:hover {
+    color: var(--clr-primary-500);
+    background-color: var(--clr-neutral-100);
+}
+
+/*=============== RESPONSIVE ===============*/
+@media screen and (min-width: 460px) {
+    .card {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .card__img-container {
+        height: 50px;
+        width: 50px;
+    }
+
+    .card__img-container img {
+        height: 17px;
+    }
+
+    .card__title {
+        font-size: 1.75rem;
+        margin-bottom: .75rem;
+    }
+
+    .card__rating-btn {
+        height: 54px;
+        width: 54px;
+    }
+}
+
+/*=============== ATTRIBUTION ===============*/
+.attribution {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.attribution a {
+    text-decoration: none;
+    color: var(--clr-primary-500);
+    font-weight: var(--font-bold);
+}
